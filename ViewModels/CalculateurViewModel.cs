@@ -1,4 +1,4 @@
-﻿
+﻿using System.Collections.ObjectModel;
 
 namespace CalculateurAge.ViewModels;
 
@@ -65,6 +65,7 @@ public class CalculateurViewModel : BaseViewModel
 
         Resultat = $"{Nom}, vous avez {age} ans";
         Message = age >= 21 ? "Vous etes majeur" : "Vous etes mineur";
+        Historique.Insert(0, $"{Resultat} - {Message}");
         ResultatVisible = true;
     }
 
@@ -82,4 +83,7 @@ public class CalculateurViewModel : BaseViewModel
         get => _message;
         set => SetField(ref _message, value);
     }
+
+    public ObservableCollection<string> Historique { get; } = new();
+
 }

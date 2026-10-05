@@ -19,6 +19,17 @@
             <Label Text="{Binding Message}"
                    FontSize="20"
                    IsVisible="{Binding ResultatVisible}"/>
+
+            <Label Text="Historique"
+                   FontSize="16"/>
+
+            <VerticalStackLayout BindableLayout.ItemsSource="{Binding Historique}">
+                <BindableLayout.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding .}"/>
+                    </DataTemplate>
+                </BindableLayout.ItemTemplate>
+            </VerticalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 
